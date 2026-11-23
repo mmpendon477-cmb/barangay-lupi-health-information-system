@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Residents · Barangay Lupi CHIMS</title>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <a class="brand" href="list.html"><span><strong>CHIMS</strong><small>Barangay Lupi</small></span></a>
+        <input class="menu-toggle" id="menu-toggle" type="checkbox" aria-label="Show menu">
+        <label class="menu-button" for="menu-toggle">Menu</label>
+        <nav class="side-nav" aria-label="Main">
+          <p class="side-group">Overview</p>
+          <a class="side-link" href="#">Dashboard</a>
+          <p class="side-group">Records</p>
+          <a class="side-link" href="list.html" aria-current="page">Residents</a>
+          <a class="side-link" href="#">Senior citizens</a>
+          <a class="side-link" href="#">Consultations</a>
+          <p class="side-group">Medicines</p>
+          <a class="side-link" href="#">Medicines</a>
+          <a class="side-link" href="#">Batches</a>
+          <a class="side-link" href="#">Distribution</a>
+          <a class="side-link" href="#">Inventory history</a>
+          <p class="side-group">Public content</p>
+          <a class="side-link" href="#">Announcements</a>
+          <a class="side-link" href="#">Programs</a>
+          <a class="side-link" href="#">Health center info</a>
+          <p class="side-group">Administration</p>
+          <a class="side-link" href="#">Users</a>
+          <a class="side-link" href="#">Log out</a>
+        </nav>
+      </div>
+    </aside>
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h1>Residents</h1>
+        <p>5 residents registered</p>
+      </div>
+      <a class="btn" href="form.html">Add resident</a>
+    </div>
+
+    <!-- Later: GET form read by PHP ($_GET['q'], $_GET['purok']) -->
+    <form class="toolbar" action="#" method="get" role="search">
+      <input type="search" name="q" placeholder="Search by name or household code" aria-label="Search residents">
+      <select name="purok" aria-label="Filter by purok">
+        <option value="">All puroks</option>
+        <option>Purok 1</option>
+        <option>Purok 2</option>
+        <option>Purok 3</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Cards = rows of the resident table (seed.sql). Senior badge = a matching senior_citizen row exists.
+         Labels: household_code, full_name, birth_date, sex, purok, contact_number, is_active -->
+    <section class="cards" aria-label="Resident list">
+      <article class="card">
+        <div class="avatar av1" aria-hidden="true">PD</div>
+        <div class="top"><h2>Pedro Dela Cruz <span class="badge badge-senior">Senior</span></h2><span class="badge badge-active">Active</span></div>
+        <dl>
+          <dt>Household</dt><dd>HH-001</dd>
+          <dt>Purok</dt><dd>Purok 1</dd>
+          <dt>Birth date</dt><dd>1955-04-12</dd>
+          <dt>Sex</dt><dd>Male</dd>
+          <dt>Contact</dt><dd>09000000001</dd>
+        </dl>
+        <div class="actions"><a class="btn btn-secondary btn-small" href="form.html">Edit</a><button class="btn-danger btn-small" type="button">Deactivate</button></div>
+      </article>
+      <article class="card">
+        <div class="avatar av2" aria-hidden="true">RM</div>
+        <div class="top"><h2>Rosa Mendoza <span class="badge badge-senior">Senior</span></h2><span class="badge badge-active">Active</span></div>
+        <dl>
+          <dt>Household</dt><dd>HH-002</dd>
+          <dt>Purok</dt><dd>Purok 2</dd>
+          <dt>Birth date</dt><dd>1960-08-20</dd>
+          <dt>Sex</dt><dd>Female</dd>
+          <dt>Contact</dt><dd>09000000002</dd>
+        </dl>
+        <div class="actions"><a class="btn btn-secondary btn-small" href="form.html">Edit</a><button class="btn-danger btn-small" type="button">Deactivate</button></div>
+      </article>
+      <article class="card">
+        <div class="avatar av3" aria-hidden="true">CG</div>
+        <div class="top"><h2>Carlo Garcia</h2><span class="badge badge-active">Active</span></div>
+        <dl>
+          <dt>Household</dt><dd>HH-003</dd>
+          <dt>Purok</dt><dd>Purok 3</dd>
+          <dt>Birth date</dt><dd>1998-02-15</dd>
+          <dt>Sex</dt><dd>Male</dd>
+          <dt>Contact</dt><dd>09000000003</dd>
+        </dl>
+        <div class="actions"><a class="btn btn-secondary btn-small" href="form.html">Edit</a><button class="btn-danger btn-small" type="button">Deactivate</button></div>
+      </article>
+      <article class="card">
+        <div class="avatar av1" aria-hidden="true">LF</div>
+        <div class="top"><h2>Liza Fernandez</h2><span class="badge badge-active">Active</span></div>
+        <dl>
+          <dt>Household</dt><dd>HH-004</dd>
+          <dt>Purok</dt><dd>Purok 1</dd>
+          <dt>Birth date</dt><dd>2001-11-05</dd>
+          <dt>Sex</dt><dd>Female</dd>
+          <dt>Contact</dt><dd>09000000004</dd>
+        </dl>
+        <div class="actions"><a class="btn btn-secondary btn-small" href="form.html">Edit</a><button class="btn-danger btn-small" type="button">Deactivate</button></div>
+      </article>
+      <article class="card">
+        <div class="avatar av2" aria-hidden="true">MB</div>
+        <div class="top"><h2>Mario Bautista</h2><span class="badge badge-active">Active</span></div>
+        <dl>
+          <dt>Household</dt><dd>HH-005</dd>
+          <dt>Purok</dt><dd>Purok 2</dd>
+          <dt>Birth date</dt><dd>1972-06-30</dd>
+          <dt>Sex</dt><dd>Male</dd>
+          <dt>Contact</dt><dd>09000000006</dd>
+        </dl>
+        <div class="actions"><a class="btn btn-secondary btn-small" href="form.html">Edit</a><button class="btn-danger btn-small" type="button">Deactivate</button></div>
+      </article>
+    </section>
+
+    <!-- Empty state from the wireframe: show when a search finds 0 residents (remove "hidden") -->
+    <div class="empty" hidden>
+      <p>No residents yet. Add the first one.</p>
+      <a class="btn" href="form.html">Add resident</a>
+    </div>
+  </main>
+  </div>
+</body>
+</html>

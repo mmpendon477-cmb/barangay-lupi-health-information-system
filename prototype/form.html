@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Add resident · Barangay Lupi CHIMS</title>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <a class="brand" href="list.html"><span><strong>CHIMS</strong><small>Barangay Lupi</small></span></a>
+        <input class="menu-toggle" id="menu-toggle" type="checkbox" aria-label="Show menu">
+        <label class="menu-button" for="menu-toggle">Menu</label>
+        <nav class="side-nav" aria-label="Main">
+          <p class="side-group">Overview</p>
+          <a class="side-link" href="#">Dashboard</a>
+          <p class="side-group">Records</p>
+          <a class="side-link" href="list.html" aria-current="page">Residents</a>
+          <a class="side-link" href="#">Senior citizens</a>
+          <a class="side-link" href="#">Consultations</a>
+          <p class="side-group">Medicines</p>
+          <a class="side-link" href="#">Medicines</a>
+          <a class="side-link" href="#">Batches</a>
+          <a class="side-link" href="#">Distribution</a>
+          <a class="side-link" href="#">Inventory history</a>
+          <p class="side-group">Public content</p>
+          <a class="side-link" href="#">Announcements</a>
+          <a class="side-link" href="#">Programs</a>
+          <a class="side-link" href="#">Health center info</a>
+          <p class="side-group">Administration</p>
+          <a class="side-link" href="#">Users</a>
+          <a class="side-link" href="#">Log out</a>
+        </nav>
+      </div>
+    </aside>
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h1>Add resident</h1>
+        <p>Fields marked * are required.</p>
+      </div>
+    </div>
+
+    <!-- name="..." matches the resident column (PHP: $_POST['full_name']).
+         Not on this form: resident_id (AUTO_INCREMENT) and registered_by (from the logged-in user's session). -->
+    <form action="#" method="post" class="form">
+      <fieldset>
+        <legend>Basic information</legend>
+        <div class="field">
+          <label for="full_name">Full name *</label>
+          <input id="full_name" name="full_name" type="text" maxlength="150" class="field-invalid" required aria-describedby="name-error">
+          <p class="error" id="name-error">Enter the resident's full name.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="birth_date">Birth date</label>
+            <input id="birth_date" name="birth_date" type="date">
+          </div>
+          <div class="field">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex">
+              <option value="">Choose one</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Household and contact</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="household_code">Household code</label>
+            <input id="household_code" name="household_code" type="text" maxlength="50" placeholder="HH-006">
+          </div>
+          <div class="field">
+            <label for="purok">Purok</label>
+            <select id="purok" name="purok">
+              <option value="">Choose one</option>
+              <option>Purok 1</option>
+              <option>Purok 2</option>
+              <option>Purok 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="contact_number">Contact number</label>
+          <input id="contact_number" name="contact_number" type="tel" maxlength="30" placeholder="09XXXXXXXXX">
+          <p class="hint">Used by health workers to reach the household.</p>
+        </div>
+        <div class="checkbox-row">
+          <input id="is_active" name="is_active" type="checkbox" value="1" checked>
+          <label for="is_active">Active resident</label>
+        </div>
+      </fieldset>
+
+      <div class="buttons">
+        <button type="submit">Save resident</button>
+        <a href="list.html" class="btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </main>
+  </div>
+</body>
+</html>
